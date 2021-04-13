@@ -1,1 +1,32 @@
-<p>header works!</p>
+<header class="page-header">
+  <div class="page-body__container  page-header__container">
+    <img class="page-header__logo" src="assets/img/logo.png" width="42" height="42" alt="Trip logo">
+
+    <div class="trip-main">
+      <section class="trip-main__trip-info trip-info">
+        <div class="trip-info__main">
+          <h1 class="trip-info__title">Amsterdam &mdash; Chamonix &mdash; Geneva</h1>
+
+          <p class="trip-info__dates">Mar 18&nbsp;&mdash;&nbsp;20</p>
+        </div>
+
+        <p class="trip-info__cost">
+          Total: &euro;&nbsp;<span class="trip-info__cost-value">1230</span>
+        </p>
+      </section>
+
+      <div class="trip-main__trip-controls  trip-controls">
+        <h2 class="visually-hidden">Switch trip view</h2>
+        <nav class="trip-controls__trip-tabs  trip-tabs">
+          <a class="trip-tabs__btn  trip-tabs__btn--active" href="#">Table</a>
+          <a class="trip-tabs__btn" href="#">Stats</a>
+        </nav>
+
+        <h2 class="visually-hidden">Filter events</h2>
+        <app-filter></app-filter>
+      </div>
+
+      <button class="trip-main__event-add-btn  btn  btn--big  btn--yellow" type="button" disabled>New event</button>
+    </div>
+  </div>
+</header>
