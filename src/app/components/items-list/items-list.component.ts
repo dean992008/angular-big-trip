@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./items-list.component.scss']
 })
 export class ItemsListComponent implements OnInit {
-  items: boolean[];
+  items: boolean[] = [];
 
   constructor() {
     this.items = new Array(5).fill(false);
