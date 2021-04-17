@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ApiService, Destination} from '../../api.service';
 
 @Component({
   selector: 'app-items-list',
@@ -6,17 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./items-list.component.scss']
 })
 export class ItemsListComponent implements OnInit {
-  items: boolean[] = [];
+  destinations?: Destination[];
 
-  constructor() {
-    this.items = new Array(5).fill(false);
+
+  constructor(private apiservice: ApiService) {
   }
 
-  onClickOpen(index: number): void {
-    this.items[index] = !this.items[index];
-  }
+
 
   ngOnInit(): void {
+  this.getRoutes();
+  }
+
+  getRoutes(): void {
+    this.apiservice.getData().subscribe(data => this.destinations = data );
   }
 
 

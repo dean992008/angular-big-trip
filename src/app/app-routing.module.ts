@@ -6,10 +6,10 @@ import {TableGuard} from "./table.guard";
 
 const routes: Routes = [
   {
-    path: "", component: MainComponent,
+    path: '', component: MainComponent,
   },
   {
-    path: "stats", component: StatsComponent
+    path: 'stats', component: StatsComponent
   }
 ];
 

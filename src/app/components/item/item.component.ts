@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Destination} from '../../api.service';
 
 @Component({
   selector: 'app-item',
@@ -7,7 +8,10 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ItemComponent implements OnInit {
 
-  constructor() { }
+  @Input() destination: Destination;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

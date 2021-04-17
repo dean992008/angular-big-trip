@@ -1,12 +1,12 @@
 <ul class="trip-events__list">
-  <ng-container *ngFor="let i of items; index as item;">
-  <ng-container *ngIf="!i; then defItem; else editedItem"></ng-container>
+  <ng-container *ngFor="let destination of destinations">
+  <ng-container *ngIf="destination; then defItem; else editedItem"></ng-container>
     <ng-template #defItem>
-      <app-item (click)="onClickOpen(item)">
+      <app-item [destination]="destination" >
     </app-item>
     </ng-template>
     <ng-template #editedItem>
-      <app-edit-item (click)="onClickOpen(item)"></app-edit-item>
+      <app-edit-item></app-edit-item>
     </ng-template>
   </ng-container>
 </ul>

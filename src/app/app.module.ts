@@ -15,6 +15,7 @@ import { ItemComponent } from './components/item/item.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { EditItemComponent } from './components/edit-item/edit-item.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { EditItemComponent } from './components/edit-item/edit-item.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
