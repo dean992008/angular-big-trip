@@ -14,6 +14,7 @@ import { ItemsListComponent } from './components/items-list/items-list.component
 import { ItemComponent } from './components/item/item.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { StatsComponent } from './components/stats/stats.component';
+import { EditItemComponent } from './components/edit-item/edit-item.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { StatsComponent } from './components/stats/stats.component';
     ItemsListComponent,
     ItemComponent,
     LoadingComponent,
-    StatsComponent
+    StatsComponent,
+    EditItemComponent
   ],
   imports: [
     BrowserModule,
