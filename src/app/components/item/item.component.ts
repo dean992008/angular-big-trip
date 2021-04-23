@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IRouteEvent} from '../../services/api.service';
-import {formatDate} from "@angular/common";
+import * as moment from 'moment';
+import 'moment-duration-format';
+import {IRouteEvent} from '../../services/api-service/api.service';
 
 @Component({
   selector: 'app-item',
@@ -18,6 +19,7 @@ export class ItemComponent implements OnInit {
   }
 
   eventDuration(start: string, end: string): string {
-    return formatDate(this.routeEvent.date_from, m,  )
+    const difference = moment(end).diff(start, 'm');
+    return moment.duration(difference, 'minutes').format('hh:mm');
   }
 }
