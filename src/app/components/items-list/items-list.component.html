@@ -1,8 +1,8 @@
 <ul class="trip-events__list">
-  <ng-container *ngFor="let destination of destinations">
-  <ng-container *ngIf="destination; then defItem; else editedItem"></ng-container>
+  <ng-container *ngFor="let routeEvent of routeEvents$ | async">
+    <ng-container *ngIf="routeEvent; then defItem; else editedItem"></ng-container>
     <ng-template #defItem>
-      <app-item [destination]="destination" >
+      <app-item [routeEvent]="routeEvent" >
     </app-item>
     </ng-template>
     <ng-template #editedItem>

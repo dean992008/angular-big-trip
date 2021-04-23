@@ -15,7 +15,8 @@ import { ItemComponent } from './components/item/item.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { EditItemComponent } from './components/edit-item/edit-item.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AuthInterceptor} from "./services/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import {HttpClientModule} from "@angular/common/http";
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

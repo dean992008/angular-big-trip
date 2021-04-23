@@ -1,27 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import {ApiService, Destination} from '../../api.service';
+import {Component} from '@angular/core';
+import {ApiService, IRouteEvent} from '../../services/api.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-items-list',
   templateUrl: './items-list.component.html',
   styleUrls: ['./items-list.component.scss']
 })
-export class ItemsListComponent implements OnInit {
-  destinations?: Destination[];
-
-
-  constructor(private apiservice: ApiService) {
+export class ItemsListComponent {
+   routeEvents$: Observable<IRouteEvent[]>;
+  constructor(private apiService: ApiService) {
+    this.routeEvents$ = apiService.getData();
   }
-
-
-
-  ngOnInit(): void {
-  this.getRoutes();
-  }
-
-  getRoutes(): void {
-    this.apiservice.getData().subscribe(data => this.destinations = data );
-  }
-
-
 }

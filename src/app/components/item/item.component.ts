@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Destination} from '../../api.service';
+import {IRouteEvent} from '../../services/api.service';
+import {formatDate} from "@angular/common";
 
 @Component({
   selector: 'app-item',
@@ -8,7 +9,7 @@ import {Destination} from '../../api.service';
 })
 export class ItemComponent implements OnInit {
 
-  @Input() destination: Destination;
+  @Input() routeEvent!: IRouteEvent;
 
   constructor() {
   }
@@ -16,4 +17,7 @@ export class ItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  eventDuration(start: string, end: string): string {
+    return formatDate(this.routeEvent.date_from, m,  )
+  }
 }
