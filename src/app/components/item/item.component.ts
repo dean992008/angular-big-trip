@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import * as moment from 'moment';
 import 'moment-duration-format';
 import {IRouteEvent} from '../../services/api-service/api.service';
@@ -8,18 +8,15 @@ import {IRouteEvent} from '../../services/api-service/api.service';
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss']
 })
-export class ItemComponent implements OnInit {
+
+export class ItemComponent {
 
   @Input() routeEvent!: IRouteEvent;
 
   constructor() {
   }
-
-  ngOnInit(): void {
-  }
-
   eventDuration(start: string, end: string): string {
     const difference = moment(end).diff(start, 'm');
-    return moment.duration(difference, 'minutes').format('hh:mm');
+    return moment.duration(difference, 'minutes').format('h:mm');
   }
 }

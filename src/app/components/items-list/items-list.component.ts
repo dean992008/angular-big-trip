@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ApiService, IRouteEvent} from '../../services/api-service/api.service';
+import {ApiService} from '../../services/api-service/api.service';
 import {Observable} from 'rxjs';
 import {CompareService} from '../../services/compare-service/compare-service';
 
@@ -9,19 +9,31 @@ import {CompareService} from '../../services/compare-service/compare-service';
   styleUrls: ['./items-list.component.scss']
 })
 export class ItemsListComponent implements OnInit{
-  routeEvents$: Observable<IRouteEvent[]>;
-  filterType!: string;
+  routeEvents$: Observable<any>;
+  filterType = 'everything';
+  sortType = 'day';
+  orderType = true;
 
   constructor(private apiService: ApiService,
-              private filterService: CompareService) {
+              private compareService: CompareService) {
     this.routeEvents$ = apiService.getData();
   }
 
   ngOnInit(): void {
-    this.filterService.getFilterType().subscribe(item => this.selectedFilter(item));
+    this.compareService.getFilterType().subscribe(item => this.selectedFilter(item));
+    this.compareService.getSortType().subscribe(item => this.selectedSorting(item));
+    this.compareService.getOrderType().subscribe(item => this.selectedOrderType(item));
   }
 
   selectedFilter(item: string): void {
     this.filterType = item;
+  }
+
+  selectedSorting(item: string): void {
+    this.sortType = item;
+  }
+
+  selectedOrderType(item: boolean): void {
+    this.orderType = item;
   }
 }

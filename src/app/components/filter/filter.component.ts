@@ -7,10 +7,10 @@ import {CompareService} from '../../services/compare-service/compare-service';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent {
-  constructor(private filterService: CompareService) {
+  constructor(private compareService: CompareService) {
   }
 
   getFilterType(value: string): void {
-    this.filterService.emitChangeFilterType(value);
+    this.compareService.emitChangeFilterType(value);
   }
 }
