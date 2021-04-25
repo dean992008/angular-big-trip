@@ -8,9 +8,17 @@ import { ItemsListComponent } from '../items-list/items-list.component';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
+<<<<<<< HEAD
   @ViewChild('listComponent') listComponent!: ItemsListComponent;
 
   constructor() {}
+=======
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+>>>>>>> master
 
   ngOnInit(): void {}
 }
