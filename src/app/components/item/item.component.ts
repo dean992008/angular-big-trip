@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {IRouteEvent} from '../../services/api.service';
+import {formatDate} from "@angular/common";
 
 @Component({
   selector: 'app-item',
@@ -7,9 +9,11 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ItemComponent implements OnInit {
 
-  constructor() { }
+  @Input() routeEvent!: IRouteEvent;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
-
 }

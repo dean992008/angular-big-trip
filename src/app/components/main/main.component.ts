@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {ItemsListComponent} from '../items-list/items-list.component';
 
 @Component({
   selector: 'app-main',
