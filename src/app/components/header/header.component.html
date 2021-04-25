@@ -17,9 +17,9 @@
 
       <div class="trip-main__trip-controls  trip-controls">
         <h2 class="visually-hidden">Switch trip view</h2>
-        <nav class="trip-controls__trip-tabs  trip-tabs">
-          <a routerLink="/" routerLinkActive="active" class="trip-tabs__btn  trip-tabs__btn--active">Table</a>
-          <a routerLink="/stats" routerLinkActive="active" class="trip-tabs__btn">Stats</a>
+        <nav class="trip-controls__trip-tabs trip-tabs">
+          <a routerLink="/" routerLinkActive="trip-tabs__btn--active" [routerLinkActiveOptions]="{exact: true}" class="trip-tabs__btn">Table</a>
+          <a routerLink="/stats" routerLinkActive="trip-tabs__btn--active" [routerLinkActiveOptions]="{exact: true}" class="trip-tabs__btn">Stats</a>
         </nav>
 
         <h2 class="visually-hidden">Filter events</h2>
