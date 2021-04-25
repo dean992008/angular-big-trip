@@ -16,8 +16,4 @@ export class ItemComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  eventDuration(start: string, end: string): string {
-    return formatDate(this.routeEvent.date_from, m,  )
-  }
 }

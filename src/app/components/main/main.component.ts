@@ -8,8 +8,6 @@ import {ItemsListComponent} from '../items-list/items-list.component';
 })
 export class MainComponent implements OnInit {
 
-  @ViewChild('listComponent') listComponent!: ItemsListComponent;
-
   constructor() { }
 
   ngOnInit(): void {
