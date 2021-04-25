@@ -1,28 +1,37 @@
-import {Component, OnInit} from '@angular/core';
-import {ApiService} from '../../services/api-service/api.service';
-import {Observable} from 'rxjs';
-import {CompareService} from '../../services/compare-service/compare-service';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { ApiService } from '../../services/api-service/api.service';
+import { CompareService } from '../../services/compare-service/compare-service';
 
 @Component({
   selector: 'app-items-list',
   templateUrl: './items-list.component.html',
-  styleUrls: ['./items-list.component.scss']
+  styleUrls: ['./items-list.component.scss'],
 })
-export class ItemsListComponent implements OnInit{
+export class ItemsListComponent implements OnInit {
   routeEvents$: Observable<any>;
   filterType = 'everything';
   sortType = 'day';
   orderType = true;
 
-  constructor(private apiService: ApiService,
-              private compareService: CompareService) {
+  constructor(
+    private apiService: ApiService,
+    private compareService: CompareService
+  ) {
     this.routeEvents$ = apiService.getData();
   }
 
   ngOnInit(): void {
-    this.compareService.getFilterType().subscribe(item => this.selectedFilter(item));
-    this.compareService.getSortType().subscribe(item => this.selectedSorting(item));
-    this.compareService.getOrderType().subscribe(item => this.selectedOrderType(item));
+    this.compareService
+      .getFilterType()
+      .subscribe((item) => this.selectedFilter(item));
+    this.compareService
+      .getSortType()
+      .subscribe((item) => this.selectedSorting(item));
+    this.compareService
+      .getOrderType()
+      .subscribe((item) => this.selectedOrderType(item));
   }
 
   selectedFilter(item: string): void {

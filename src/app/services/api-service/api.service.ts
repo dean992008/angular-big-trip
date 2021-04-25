@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface IRouteEvent {
@@ -12,8 +12,8 @@ export interface IRouteEvent {
     description: string;
     pictures: [
       {
-        src: string,
-        description: string
+        src: string;
+        description: string;
       }
     ];
   };
@@ -22,16 +22,14 @@ export interface IRouteEvent {
   offers: [];
 }
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class ApiService {
+  private POINTS_URL = 'https://13.ecmascript.pages.academy/big-trip/points';
 
-  private pointsURL = 'https://13.ecmascript.pages.academy/big-trip/points';
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getData(): Observable<any> {
-    return this.http.get(this.pointsURL);
+    return this.http.get(this.POINTS_URL);
   }
 }

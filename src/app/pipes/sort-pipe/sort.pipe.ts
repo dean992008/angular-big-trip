@@ -1,13 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {IRouteEvent} from '../../services/api-service/api.service';
 import * as moment from 'moment';
-import {ESortType} from '../../enums/sortTypes';
+
+import { IRouteEvent } from '../../services/api-service/api.service';
+import { ESortType } from '../../enums/sortTypes';
 
 @Pipe({
-  name: 'sort'
+  name: 'sort',
 })
 export class SortPipe implements PipeTransform {
-
   transform(value: IRouteEvent[], ...args: any[]): any {
     value = value || [];
     let multiplier = 1;

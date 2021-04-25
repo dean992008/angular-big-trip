@@ -3,7 +3,7 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -11,17 +11,24 @@ import { Observable } from 'rxjs';
 export class AuthInterceptor implements HttpInterceptor {
   constructor() {}
 
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-      const paramReq = request.clone({
-        setHeaders: {
-          Authorization: 'Basic er883jdzbdw'
-        }
-      });
-      const nextHandle = next.handle(paramReq);
-      nextHandle.subscribe(() => {}, (error) => {
+  intercept(
+    request: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
+    const paramReq = request.clone({
+      setHeaders: {
+        Authorization: 'Basic er883jdzbdw',
+      },
+    });
+    const nextHandle = next.handle(paramReq);
+    nextHandle.subscribe(
+      () => {},
+      (error) => {
         if (error.status === 401) {
-        location.href = '/';
-      }});
-      return nextHandle;
+          location.href = '/';
+        }
+      }
+    );
+    return nextHandle;
   }
 }
