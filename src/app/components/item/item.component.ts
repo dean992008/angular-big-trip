@@ -12,16 +12,8 @@ import { IRouteEvent } from '../../services/api-service/api.service';
 export class ItemComponent {
   @Input() routeEvent!: IRouteEvent;
 
-<<<<<<< HEAD
-  constructor() {}
   eventDuration(start: string, end: string): string {
     const difference = moment(end).diff(start, 'm');
     return moment.duration(difference, 'minutes').format('h:mm');
-=======
-  constructor() {
-  }
-
-  ngOnInit(): void {
->>>>>>> master
   }
 }
