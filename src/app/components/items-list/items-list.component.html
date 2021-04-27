@@ -1,5 +1,5 @@
 <ul class="trip-events__list">
-  <ng-container *ngFor="let routeEvent of routeEvents$ | async">
+  <ng-container *ngFor="let routeEvent of routeEvents$|async |filter:filterType|sort:sortType:orderType">
     <ng-container *ngIf="routeEvent; then defItem; else editedItem"></ng-container>
     <ng-template #defItem>
       <app-item [routeEvent]="routeEvent" >

@@ -15,8 +15,10 @@ import { ItemComponent } from './components/item/item.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { EditItemComponent } from './components/edit-item/edit-item.component';
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {AuthInterceptor} from "./services/auth.interceptor";
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AuthInterceptor} from './services/api-service/auth.interceptor';
+import { FilterPipe } from './pipes/filter-pipe/filter.pipe';
+import { SortPipe } from './pipes/sort-pipe/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -32,12 +34,14 @@ import {AuthInterceptor} from "./services/auth.interceptor";
     ItemComponent,
     LoadingComponent,
     StatsComponent,
-    EditItemComponent
+    EditItemComponent,
+    FilterPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
