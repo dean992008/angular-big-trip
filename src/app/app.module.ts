@@ -19,6 +19,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './services/api-service/auth.interceptor';
 import { FilterPipe } from './pipes/filter-pipe/filter.pipe';
 import { SortPipe } from './pipes/sort-pipe/sort.pipe';
+import {ChartModule} from "angular2-chartjs";
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { SortPipe } from './pipes/sort-pipe/sort.pipe';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ChartModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
