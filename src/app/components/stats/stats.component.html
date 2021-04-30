@@ -8,15 +8,15 @@
       <h2 class="visually-hidden">Trip statistics</h2>
 
       <div class="statistics__item statistics__item--money">
-        <canvas id="moneyCtx" class="statistics__chart  statistics__chart--money" width="900"></canvas>
+        <canvas appChart [labels]="moneyLabels" [data]="moneyDataLabels" class="statistics__chart  statistics__chart--money" width="900"></canvas>
       </div>
 
       <div class="statistics__item statistics__item--transport">
-        <canvas id="typeCtx" class="statistics__chart  statistics__chart--transport" width="900"></canvas>
+        <canvas appChart [labels]="moneyLabels" [data]="moneyDataLabels" class="statistics__chart  statistics__chart--transport" width="900"></canvas>
       </div>
 
       <div class="statistics__item statistics__item--time-spend">
-        <canvas id="timeCtx" class="statistics__chart  statistics__chart--time" width="900"></canvas>
+        <canvas appChart [labels]="moneyLabels" [data]="moneyDataLabels" class="statistics__chart  statistics__chart--time" width="900"></canvas>
       </div>
     </section>
   </div>
