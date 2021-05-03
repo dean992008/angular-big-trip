@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-stats',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stats.component.scss']
 })
 export class StatsComponent implements OnInit {
+  moneyLabels = [`TAXI`, `BUS`, `TRAIN`, `SHIP`, `TRANSPORT`, `DRIVE`];
+  moneyDataLabels = [400, 300, 200, 160, 150, 100];
 
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
-
 }
