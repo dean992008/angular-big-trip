@@ -1,7 +1,7 @@
 <li class="trip-events__item">
   <ng-content></ng-content>
   <div class="event">
-    <time class="event__date" datetime="2019-03-18">MAR 18</time>
+    <time class="event__date" datetime="">{{routeEvent?.date_from | date:"MMM d"}}</time>
     <div class="event__type">
       <img class="event__type-icon" width="42" height="42" src="assets/img/icons/{{routeEvent?.type}}.png" alt="Event type icon">
     </div>
@@ -12,7 +12,7 @@
         &mdash;
         <time class="event__end-time" datetime="">{{routeEvent?.date_to | date:"H:mm"}}</time>
       </p>
-      <p class="event__duration"></p>
+      <p class="event__duration">{{eventDuration(routeEvent.date_from,routeEvent.date_to)}}</p>
     </div>
     <p class="event__price">
       &euro;&nbsp;<span class="event__price-value">{{routeEvent?.base_price}}</span>
