@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import {Store} from '@ngrx/store';
 
-import { CompareService } from '../../services/compare-service/compare-service';
+import * as fromState from '../../store';
+import * as actions from '../../store/actions';
 
 @Component({
   selector: 'app-sort',
@@ -10,10 +12,10 @@ import { CompareService } from '../../services/compare-service/compare-service';
 export class SortComponent {
   orderType: boolean;
 
-  constructor(private compareService: CompareService) {}
+  constructor(private store: Store<fromState.State>) {}
 
   getSortType(sortType: string, orderType: boolean): void {
     this.orderType = !this.orderType;
-    this.compareService.emitChangeSortType(sortType, orderType);
+    this.store.dispatch(actions.sortingOptions({payload: {order: orderType, type: sortType}}));
   }
 }

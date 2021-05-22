@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
 
-import { ApiService } from '../../services/api-service/api.service';
-import { CompareService } from '../../services/compare-service/compare-service';
+import {ApiService} from '../../services/api-service/api.service';
+import {select, Store} from '@ngrx/store';
+import * as fromState from '../../store';
 
 @Component({
   selector: 'app-items-list',
@@ -10,39 +11,27 @@ import { CompareService } from '../../services/compare-service/compare-service';
   styleUrls: ['./items-list.component.scss'],
 })
 export class ItemsListComponent implements OnInit {
-  routeEvents$: Observable<any>;
+  routeEvents$: Observable<any> = this.store.pipe(select(state => state.dataStore.routes)) ;
   filterType = 'everything';
   sortType = 'day';
   orderType = true;
 
   constructor(
     private apiService: ApiService,
-    private compareService: CompareService
-  ) {
-    this.routeEvents$ = apiService.getData();
-  }
+    private store: Store<fromState.State>,
+  ) {}
 
   ngOnInit(): void {
-    this.compareService
-      .getFilterType()
-      .subscribe((item) => this.selectedFilter(item));
-    this.compareService
-      .getSortType()
-      .subscribe((item) => this.selectedSorting(item));
-    this.compareService
-      .getOrderType()
-      .subscribe((item) => this.selectedOrderType(item));
-  }
+    this.store.pipe(select(state => state.compareStore.filterType)).subscribe(filterType => {
+      this.filterType = filterType;
+    });
 
-  selectedFilter(item: string): void {
-    this.filterType = item;
-  }
+    this.store.pipe(select(state => state.compareStore.sortType)).subscribe(sortType => {
+      this.sortType = sortType;
+    });
 
-  selectedSorting(item: string): void {
-    this.sortType = item;
-  }
-
-  selectedOrderType(item: boolean): void {
-    this.orderType = item;
+    this.store.pipe(select(state => state.compareStore.orderType)).subscribe(orderType => {
+      this.orderType = orderType;
+    });
   }
 }
